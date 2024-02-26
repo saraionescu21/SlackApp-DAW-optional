@@ -1,0 +1,21 @@
+﻿@model SlackApp.Models.Category
+
+
+@{
+    ViewBag.Title = "Add Category";
+}
+
+<div class="category-container" style="background-color: #f5f5f5; padding: 20px;">
+    <h2>Adaugare Categorie</h2>
+
+    @using (Html.BeginForm(actionName: "New", controllerName: "Categories", method: FormMethod.Post))
+    {
+        @Html.Label("CategoryName", "Category Name")
+        <br />
+        @Html.TextBox("CategoryName", null, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.CategoryName, null, new { @class = "text-danger" })
+        <br />
+        <br />
+        <button class="btn btn-success" type="submit">Submit</button>
+    }
+</div>

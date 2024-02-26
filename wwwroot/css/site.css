@@ -1,0 +1,87 @@
+﻿html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    background-image: url('/images/background.jpg');
+}
+
+
+.content-container {
+    background-color: pink; 
+    padding: 20px; 
+}
+
+.navbar {
+    background-color: #e60695 !important;
+    border: none !important;
+    box-shadow: 0 3px 12px #636e72 !important;
+}
+
+.footer {
+    background-color: #e60695;
+}
+
+/*pozele cu hover*/
+.image-container {
+    position: relative;
+    overflow: hidden;
+    display: inline-block; 
+}
+
+
+.img-fluid {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.img-hover {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    object-fit: cover;
+}
+
+
+.image-container:hover .img-hover {
+    opacity: 1;
+}
+
+/*butoane*/
+
+.btn {
+    background-color: deeppink; /* Schimbați culoarea de fundal la culoarea dorită */
+    color: white; /* Schimbați culoarea textului */
+    border-color: deeppink; /* Schimbați culoarea marginii */
+}
+
+.btn:hover {
+        background-color: lightpink; /* Schimbați culoarea de fundal la hover */
+        border-color: deeppink; /* Schimbați culoarea marginii la hover */
+}
+
+
+.bg-lightpink {
+    background-color: lightpink;
+}
+
+
+.note-editor .dropdown-toggle::after {
+    display: none;
+}

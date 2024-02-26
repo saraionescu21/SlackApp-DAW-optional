@@ -1,0 +1,39 @@
+﻿
+<br />
+<br />
+
+<div class="row">
+    @foreach (var user in ViewBag.UsersList)
+    {
+        <div class="col-4 mb-4">
+            <div class="card" style="height:100%; width: 100%;">
+
+                <div class="card-body d-flex justify-content-between flex-column">
+                    <div>
+                        <p><i class="bi bi-person"> </i> User Name: @user.UserName</p>
+
+                        <p><i class="bi bi-envelope"></i> User Email: @user.Email</p>
+
+
+                        @if (@user.PhoneNumber != null)
+                        {
+                            <p><i class="bi bi-phone"></i> User Phone Number: @user.PhoneNumber</p>
+                        }
+
+                        <form method="post" action="/Channels/RequestList">
+                            <input type="hidden" name="id" value="@ViewBag.ChannelId" />
+                            <input type="hidden" name="id2" value="@user.Id" />
+                            <button type="submit" class="btn btn-sm btn-success">Accept User</button>
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    }
+
+</div>
+
+<br />
+<br />

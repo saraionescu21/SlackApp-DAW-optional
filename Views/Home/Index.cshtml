@@ -1,0 +1,62 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+
+<div class="main background-image">
+    <div class="container content-container">
+        <h2>Welcome!</h2>
+        <p>Discover and join various channels based on your interests.</p>
+        @if (SignInManager.IsSignedIn(User))
+        {
+            <div>
+                <a class="btn btn-outline-primary" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity?.Name!</a>
+            </div>
+
+        }
+        else
+        {
+
+            <div class="d-flex">
+
+                <div>
+
+                    <a class="btn btn-outline-primary" asp-area="Identity" asp-page="/Account/Register">Register</a>
+
+                </div>
+
+                <div>
+
+                    <a class="btn btn-outline-primary" asp-area="Identity" asp-page="/Account/Login">Login</a>
+
+                </div>
+
+            </div>
+
+        }
+
+    </div>
+
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="image-container">
+                    <img src="~/images/poza1.jpg" class="img-fluid" alt="Poza 1">
+                    <img src="~/images/poza4.jpg" class="img-hover" alt="Poza 1 Hover">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="image-container">
+                    <img src="~/images/poza2.jpg" class="img-fluid" alt="Poza 2">
+                    <img src="~/images/poza6.jpg" class="img-hover" alt="Poza 2 Hover">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="image-container">
+                    <img src="~/images/poza3.jpg" class="img-fluid" alt="Poza 3">
+                    <img src="~/images/poza5.jpg" class="img-hover" alt="Poza 3 Hover">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

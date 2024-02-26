@@ -1,0 +1,24 @@
+﻿@model SlackApp.Models.Category
+@{
+    ViewBag.Title = "View categories";
+}
+
+
+<h2>@ViewBag.Title</h2>
+
+<br />
+
+<p>@Model.CategoryName</p>
+
+
+<form method="post" action="/Categories/Delete/@Model.Id">
+
+    <button class="btn btn-danger" type="submit">Delete category</button>
+
+</form>
+<br />
+<a class="btn alert-success" href="/Categories/Index/">Show category list</a>
+
+<br />
+<hr />
+<br />

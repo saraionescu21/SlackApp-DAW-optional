@@ -1,0 +1,31 @@
+﻿
+<div class="category-container" style="background-color: lightpink; padding: 20px;">
+@{
+    ViewBag.Title = "Category List";
+}
+<br />
+<h2 class="text-center">@ViewBag.Title</h2>
+<br />
+
+
+<div class="align-items-center justify-content-center d-flex">
+    <a class="btn btn-success" href="/Categories/New">Add new category</a>
+</div>
+
+</div>
+
+<br />
+
+<div class="category-container" style="background-color: #f5f5f5; padding: 20px;">
+@foreach (var category in ViewBag.Categories)
+{
+    <p>@category.CategoryName</p>
+    <a class="btn alert-success" href="/Categories/Show/@category.Id">Show category</a>
+    <a class="btn alert-success" href="/Categories/Edit/@category.Id">Edit category</a>
+    <br />
+    <hr />
+    <br />
+}
+<br />
+
+</div>

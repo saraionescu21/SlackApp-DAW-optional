@@ -1,0 +1,30 @@
+﻿@model SlackApp.Models.Message
+
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Editare comentariu</h2>
+<br />
+
+
+@using (Html.BeginForm(controllerName: "Messages", actionName: "Edit",
+      method: FormMethod.Post, routeValues: new { id = Model.Id }))
+
+{
+    @Html.Label("Content", "Message Content")
+
+    <br />
+
+    @Html.Editor("Content", new { @class = "form-control" })
+    <br />
+
+    @Html.ValidationMessage("Content", null, new { @class = "text-danger" })
+
+    <br />
+    <br />
+
+    <button class="btn  btn-primary" type="submit">Edit Message</button>
+
+}

@@ -1,0 +1,105 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<br />
+
+<div class="category-container" style="background-color: lightpink; padding: 20px;">
+
+<h2 class="text-center">View Channels</h2>
+
+</div>
+
+<br />
+
+@if (TempData["message"] != null)
+{
+    <div class="alert @ViewBag.Alert p-3 rounded-3 text-center mb-5">      
+        @TempData["message"]
+    </div>
+}
+
+<br />
+
+<form method="GET">
+    <div class="input-group mb-3">
+        <input type="text" class="form-control"
+               placeholder="Search topics or keywords" name="search"
+               value="@ViewBag.SearchString">
+        <button class="btn btn-outline-success"
+                type="submit">
+            Search
+        </button>
+    </div>
+</form>
+
+<br />
+<br />
+
+@foreach (SlackApp.Models.Channel channel in ViewBag.Channels)
+{
+    
+    <div class="card">
+
+    <div class="card-body">
+
+    <h3 class="card-title bg-lightpink py-3 px-3 rounded-2">@channel.Name</h3>
+
+    <div class="card-text">@channel.Description</div>
+
+    <div class="d-flex justify-content-between flex-row mt-5">
+
+    <div><i class="bi bi-globe"></i> @channel.Category.CategoryName</div>
+                @if (ViewBag.EsteAdmin)
+                {
+                    <a class="btn btn-success" href="/Channels/Show/@channel.Id">Access Channel</a>
+                }
+                else{
+                <form method="post" asp-controller="Channels" asp-action="Index2">
+                <input type="hidden" name="id" value="@channel.Id" />
+                <button type="submit" class="btn btn-success">Request Access</button>
+                </form>
+                }
+                <span class="bg-light">@channel.Date</span>
+
+    </div>
+
+    </div>
+
+
+    </div>
+
+    <br />
+    <br />
+}
+
+
+
+<div>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item">
+                <a class="page-link"
+                   href="@ViewBag.PaginationBaseUrl=1" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            @for (int i = 1; i <= ViewBag.lastPage; i++)
+            {
+                <li class="page-item">
+                    <a class="page-link"
+                       href="@ViewBag.PaginationBaseUrl=@i">@(i)</a>
+                </li>
+            }
+            <li class="page-item">
+                <a class="page-link"
+                   href="@ViewBag.PaginationBaseUrl=@(ViewBag.lastPage)" aria-
+                   label="Next">
+
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+                
